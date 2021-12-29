@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,8 +19,12 @@ public class ItemRest {
 	private ItemService itemService;
 	
 	@GetMapping
-	private ResponseEntity<List<Item>> getAllItems(){
+	public ResponseEntity<List<Item>> getAllItems(){
 		return ResponseEntity.ok(itemService.findAll());
 	}
-
+	
+	@GetMapping("{id}")
+	private ResponseEntity<List<Item>> getAllItemsByFolder (@PathVariable("id") long idFolder){
+		return ResponseEntity.ok(itemService.getItemsByFolder(idFolder));
+	}
 }

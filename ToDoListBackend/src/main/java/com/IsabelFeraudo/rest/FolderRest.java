@@ -17,7 +17,7 @@ public class FolderRest {
 	private FolderService folderService;
 	
 	@GetMapping
-	private ResponseEntity<List<Folder>> getAllFolders(){
+	public ResponseEntity<List<Folder>> getAllFolders(){
 		return ResponseEntity.ok(folderService.findAll());
 	}
 

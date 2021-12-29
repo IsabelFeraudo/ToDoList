@@ -19,11 +19,35 @@ private String description;
 @ManyToOne
 @JoinColumn(name="idFolder")
 private Folder folder;
+
+
+public Item() {
+
+}
+
 public Item(String description, Folder folder) {
 	super();
 	this.description = description;
 	this.folder = folder;
 }
+
+
+
+public Item(int idItem, String description, Folder folder) {
+	super();
+	this.idItem = idItem;
+	this.description = description;
+	this.folder = folder;
+}
+
+
+public Item(int idItem, String description) {
+	super();
+	this.idItem = idItem;
+	this.description = description;
+}
+
+
 public int getIdItem() {
 	return idItem;
 }

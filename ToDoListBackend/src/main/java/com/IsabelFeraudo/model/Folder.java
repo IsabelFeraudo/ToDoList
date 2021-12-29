@@ -13,6 +13,9 @@ public class Folder {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int idFolder;
 	private String name;
+	public Folder() {
+
+	}
 	public Folder(String name) {
 		super();
 		this.name = name;

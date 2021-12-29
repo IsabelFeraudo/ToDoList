@@ -1,5 +1,6 @@
 package com.IsabelFeraudo.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
@@ -10,6 +11,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.FluentQuery.FetchableFluentQuery;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.IsabelFeraudo.model.Item;
@@ -194,5 +196,17 @@ public <S extends Item, R> R findBy(Example<S> example, Function<FetchableFluent
 	// TODO Auto-generated method stub
 	return null;
 }
+
+public List<Item> getItemsByFolder(long idFolder){
+	List<Item> itemsInFolder= new ArrayList<>();
+	List<Item> allItems = itemRepository.findAll();
+	for(int i=0; i<allItems.size();i++) {
+		if(allItems.get(i).getFolder().getIdFolder()==idFolder) {
+			itemsInFolder.add(allItems.get(i));
+		}
+	}
+	return itemsInFolder;
+}
+
 
 }
