@@ -137,13 +137,13 @@ public long count() {
 
 @Override
 public void deleteById(Long id) {
-	itemRepository.deleteById(id)
+	itemRepository.deleteById(id);
 	
 }
 
 @Override
 public void delete(Item entity) {
-	itemRepository.delete(entity)
+	itemRepository.delete(entity);
 	
 }
 
