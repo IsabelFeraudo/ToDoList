@@ -53,14 +53,26 @@ export class AppComponent implements OnInit {
     )
   }
 
-  delete(task:any){
+  delete(task: {idItem:number;}){
     
     this.taskService.deleteTask(task.idItem).subscribe(resp=>{
-      if(resp===true){
-        this.tasks.pop(task)
+      
+      this.taskForm.reset();
+      
+      if(resp){
+
+        let index=this.tasks.indexOf(task)
+        console.log("INDICE" + task)
+
+       
+       this.tasks.splice(index,1);
+  
+
       }
     })
   }
+
+
 
 
   edit(task: any){
