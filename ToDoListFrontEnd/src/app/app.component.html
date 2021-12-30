@@ -1,2 +1,38 @@
+<div class="registerForm">
+  <h2>Create task</h2>
+  <form [formGroup]="taskForm" (ngSubmit)="save()">
+  
+    <div class="form-group" style="padding-bottom: 20px;">
+      <label>What should be done?</label>
+      <input type="text" formControlName="description" class="form-control">
+    </div>
+  
 
-<router-outlet></router-outlet>
+    <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">Save</button>
+
+  </form>
+</div>
+
+<div class="registerForm">
+<h2>All your Tasks</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Description</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of tasks">
+        <th>{{item.idItem}}</th>
+        <td>{{item.description}}</td>
+      
+        <td>
+          <button type="button" class="btn btn-success" (click)="edit(item.idItem)">Edit</button>
+          <button type="button" class="btn btn-danger" (click)="delete(item.idItem)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
