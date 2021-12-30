@@ -28,9 +28,11 @@
         <th>{{item.idItem}}</th>
         <td>{{item.description}}</td>
       
-        <td>
-          <button type="button" class="btn btn-success" idItem={idItem} (click)="edit(item.idItem)">Edit</button>
-          <button type="button" class="btn btn-danger" idItem={idItem} (click)="delete(item.idItem)">Delete</button>
+        <td id={{item.idItem}} #item>
+          
+          <button type="button" class="btn btn-success"  (click)="edit(item)">Edit</button>
+          <button type="button" class="btn btn-danger"  (click)="delete(item)">Delete</button>
+          
         </td>
       </tr>
     </tbody>

@@ -31,8 +31,8 @@ public class ItemRest {
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")
-	@GetMapping("{id}")
-	private ResponseEntity<List<Item>> getAllItemsByFolder (@PathVariable("id") long idFolder){
+	@GetMapping("{idFolder}")
+	private ResponseEntity<List<Item>> getAllItemsByFolder (@PathVariable("idFolder") long idFolder){
 		return ResponseEntity.ok(itemService.getItemsByFolder(idFolder));
 	}
 	
@@ -51,7 +51,7 @@ public class ItemRest {
 	}
 	
 	@CrossOrigin(origins = "http://localhost:4200")
-	@DeleteMapping (value = "delete/{id}")
+	@DeleteMapping (value = "delete/{idItem}")
 	private ResponseEntity<Boolean> deleteItem (@PathVariable ("idItem") Long idItem){
 		itemService.deleteById(idItem);
 		return ResponseEntity.ok(!(itemService.findById(idItem)!=null));

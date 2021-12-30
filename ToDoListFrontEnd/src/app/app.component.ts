@@ -54,6 +54,7 @@ export class AppComponent implements OnInit {
   }
 
   delete(task:any){
+    
     this.taskService.deleteTask(task.idItem).subscribe(resp=>{
       if(resp===true){
         this.tasks.pop(task)
@@ -61,9 +62,10 @@ export class AppComponent implements OnInit {
     })
   }
 
-  edit(task: { idItem: any; description: any;  }){
+
+  edit(task: any){
     this.taskForm.setValue({
-      idItem:task.idItem,
+      idItem: task.idItem,
       description: task.description ,
       
     })
