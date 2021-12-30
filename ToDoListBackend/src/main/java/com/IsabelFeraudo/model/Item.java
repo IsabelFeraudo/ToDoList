@@ -14,7 +14,7 @@ public class Item {
 
 @Id
 @GeneratedValue(strategy=GenerationType.AUTO)
-private int idItem;
+private Long idItem;
 private String description;
 @ManyToOne
 @JoinColumn(name="idFolder")
@@ -33,7 +33,7 @@ public Item(String description, Folder folder) {
 
 
 
-public Item(int idItem, String description, Folder folder) {
+public Item(Long idItem, String description, Folder folder) {
 	super();
 	this.idItem = idItem;
 	this.description = description;
@@ -41,17 +41,17 @@ public Item(int idItem, String description, Folder folder) {
 }
 
 
-public Item(int idItem, String description) {
+public Item(Long idItem, String description) {
 	super();
 	this.idItem = idItem;
 	this.description = description;
 }
 
 
-public int getIdItem() {
+public Long getIdItem() {
 	return idItem;
 }
-public void setIdItem(int idItem) {
+public void setIdItem(Long idItem) {
 	this.idItem = idItem;
 }
 public String getDescription() {

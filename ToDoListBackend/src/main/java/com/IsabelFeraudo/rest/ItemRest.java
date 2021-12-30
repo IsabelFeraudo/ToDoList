@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -22,16 +24,19 @@ public class ItemRest {
 	@Autowired
 	private ItemService itemService;
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@GetMapping
 	public ResponseEntity<List<Item>> getAllItems(){
 		return ResponseEntity.ok(itemService.findAll());
 	}
 	
-	@GetMapping("{id}")
-	private ResponseEntity<List<Item>> getAllItemsByFolder (@PathVariable("id") long idFolder){
+	@CrossOrigin(origins = "http://localhost:4200")
+	@GetMapping("{idFolder}")
+	private ResponseEntity<List<Item>> getAllItemsByFolder (@PathVariable("idFolder") long idFolder){
 		return ResponseEntity.ok(itemService.getItemsByFolder(idFolder));
 	}
 	
+	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping
 	private ResponseEntity<Item> saveItem(@RequestBody Item item){
 	try {
@@ -44,4 +49,14 @@ public class ItemRest {
 		
 		
 	}
+	
+	@CrossOrigin(origins = "http://localhost:4200")
+	@DeleteMapping (value = "delete/{idItem}")
+	private ResponseEntity<Boolean> deleteItem (@PathVariable ("idItem") Long idItem){
+		itemService.deleteById(idItem);
+		return ResponseEntity.ok(!(itemService.findById(idItem)!=null));
+		
+	}
+	
+	
 }

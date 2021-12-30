@@ -1,0 +1,42 @@
+<div class="registerForm">
+  <h2>Create task</h2>
+  <form [formGroup]="taskForm" (ngSubmit)="save()">
+  
+    <div class="form-group" style="padding-bottom: 20px;">
+      <label>What should be done?</label>
+      <input type="text" formControlName="description" class="form-control">
+    </div>
+  
+
+    <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">Save</button>
+
+  </form>
+</div>
+
+<div class="registerForm">
+<h2>All your Tasks</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>ID</th>
+        <th>Description</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of tasks">
+        <input _ngcontent-hik-c48="" type="checkbox" value="" aria-label="..." class="form-check-input me-1" style="margin-top: 1em;">
+        <th>{{item.idItem}}</th>
+        <td>{{item.description}}</td>
+      
+        <td id={{item.idItem}} #item>
+          
+          <button _ngcontent-stu-c48="" type="button" class="btn btn-success" (click)="edit(item)" style="margin-right: 20px;margin-left: 20px;">Edit</button>
+          <button type="button" class="btn btn-danger"  (click)="delete(item)">Delete</button>
+          
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

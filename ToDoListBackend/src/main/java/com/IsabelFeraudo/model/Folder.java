@@ -11,7 +11,7 @@ import javax.persistence.Table;
 public class Folder {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int idFolder;
+	private Long idFolder;
 	private String name;
 	public Folder() {
 
@@ -20,10 +20,10 @@ public class Folder {
 		super();
 		this.name = name;
 	}
-	public int getIdFolder() {
+	public Long getIdFolder() {
 		return idFolder;
 	}
-	public void setIdFolder(int idFolder) {
+	public void setIdFolder(Long idFolder) {
 		this.idFolder = idFolder;
 	}
 	public String getName() {
