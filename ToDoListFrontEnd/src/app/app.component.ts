@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
 
     this.taskForm = this.fb.group({
-      id: [''],
+      idItem: [''],
       description: ['', Validators.required],
       
     });;
@@ -45,7 +45,7 @@ export class AppComponent implements OnInit {
     
     this.taskService.saveTask(this.taskForm.value).subscribe(resp => {
       this.taskForm.reset();
-      this.tasks=this.tasks.filter((task: { id: any; })=> resp.id!==task.id);
+      this.tasks=this.tasks.filter((task: { idItem: any; })=> resp.idItem!==task.idItem);
       this.tasks.push(resp);
       
     },
