@@ -29,8 +29,8 @@
         <td>{{item.description}}</td>
       
         <td>
-          <button type="button" class="btn btn-success" (click)="edit(item.idItem)">Edit</button>
-          <button type="button" class="btn btn-danger" (click)="delete(item.idItem)">Delete</button>
+          <button type="button" class="btn btn-success" idItem={idItem} (click)="edit(item.idItem)">Edit</button>
+          <button type="button" class="btn btn-danger" idItem={idItem} (click)="delete(item.idItem)">Delete</button>
         </td>
       </tr>
     </tbody>

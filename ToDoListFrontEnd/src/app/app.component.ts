@@ -53,17 +53,17 @@ export class AppComponent implements OnInit {
     )
   }
 
-  delete(task: { id: number; }){
-    this.taskService.deleteTask(task.id).subscribe(resp=>{
+  delete(task:any){
+    this.taskService.deleteTask(task.idItem).subscribe(resp=>{
       if(resp===true){
         this.tasks.pop(task)
       }
     })
   }
 
-  edit(task: { id: any; description: any;  }){
+  edit(task: { idItem: any; description: any;  }){
     this.taskForm.setValue({
-      id:task.id,
+      idItem:task.idItem,
       description: task.description ,
       
     })

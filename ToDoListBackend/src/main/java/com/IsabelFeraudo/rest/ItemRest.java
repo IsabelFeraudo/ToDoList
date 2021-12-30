@@ -52,9 +52,11 @@ public class ItemRest {
 	
 	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping (value = "delete/{id}")
-	private ResponseEntity<Boolean> deleteItem (@PathVariable ("id") Long id){
-		itemService.deleteById(id);
-		return ResponseEntity.ok(!(itemService.findById(id)!=null));
+	private ResponseEntity<Boolean> deleteItem (@PathVariable ("idItem") Long idItem){
+		itemService.deleteById(idItem);
+		return ResponseEntity.ok(!(itemService.findById(idItem)!=null));
 		
 	}
+	
+	
 }
