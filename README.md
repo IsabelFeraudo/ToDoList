@@ -1,22 +1,37 @@
 # ToDoList
-"To do List" SPA using Angular, SpringBoot and PostgreSql
 
-Technologies implemented:
+Single Page Application for task management built with a modern full-stack architecture.
+The project demonstrates RESTful API design, frontend state management, and relational data persistence.
 
--PostgreSQL 14.1
--JavaSE-1.7
--Java 11
--Springboot 2.6.2
+## Tech Stack
 
-Angular CLI: 13.1.2
-Node: 14.17.0
-Package Manager: npm 8.3.0
-OS: win32 x64
+### Backend
+* Java 11
+* Spring Boot 2.6.2
+* PostgreSQL 14.1
+* REST API architecture
 
-Angular:
-Package                      Version
-------------------------------------------------------
-@angular-devkit/architect    0.1301.2 (cli-only)
-@angular-devkit/core         13.1.2 (cli-only)
-@angular-devkit/schematics   13.1.2 (cli-only)
-@schematics/angular          13.1.2 (cli-only)
+### Frontend
+
+* Angular 13
+* TypeScript
+* RxJS
+* Angular CLI 13.1.2
+
+### Environment
+
+* Node.js 14.17.0
+* npm 8.3.0
+* OS: Windows x64
+
+## Key Features
+
+* Create, update, and delete tasks
+* Persistent storage with PostgreSQL
+* RESTful communication between Angular and Spring Boot
+
+Modular frontend architecture
+
+## Purpose
+
+This project showcases full-stack development skills integrating Angular and Spring Boot with a relational database. It reflects my experience building end-to-end web applications and complements my current focus on data-driven and Machine Learning systems.
